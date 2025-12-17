@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment Variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data & Models
+*.pkl
+*.pth
+data/raw/
+data/processed/
+
+# Reports
+tests/reports/*.html
+tests/reports/*.xml
+
+# Sphinx docs
+docs/_build/
+
+# 大型資料集與影片
+Anomaly-Videos-Part-1/
+Anomaly-Videos-Part-1.zip
+Normal_Videos_for_Event_Recognition.zip
+Testing_Normal_Videos.zip
+UCF_Crimes-Train-Test-Split.zip
+UCF_Crimes.zip
+Action_Regnition_splits/
+Anomaly_Detection_splits/
+Anomaly_Train.txt
+Temporal_Anomaly_Annotation_for_Testing_Videos.txt
+ReadMe-Anomaly-Detection.txt
