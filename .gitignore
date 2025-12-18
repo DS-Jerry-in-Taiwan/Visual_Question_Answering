@@ -66,3 +66,13 @@ Anomaly_Detection_splits/
 Anomaly_Train.txt
 Temporal_Anomaly_Annotation_for_Testing_Videos.txt
 ReadMe-Anomaly-Detection.txt
+
+# 專案內部規劃與說明文件
+.agentdoc/
+PHASE2_PLAN.md
+Phase 2*-A 情境說明.md
+standard_queries.md
+tructure
+is the foundation for Visual_Question_Answering(VQA) system.
+ive rules
+.txt with all dependencies
