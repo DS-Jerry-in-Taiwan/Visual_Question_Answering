@@ -39,8 +39,16 @@ async def test_health_check_success():
         vlm_rag_api_key="test_key"
     )
     async with RetrievalClient(config) as client:
-        with patch.object(client.session, 'get', new=AsyncMock()) as mock_get:
-            mock_get.return_value.__aenter__.return_value.status = 200
+        class MockResponse:
+            def __init__(self, status):
+                self.status = status
+            async def __aenter__(self):
+                return self
+            async def __aexit__(self, exc_type, exc_val, exc_tb):
+                pass
+        def mock_get(*args, **kwargs):
+            return MockResponse(200)
+        with patch.object(client.session, 'get', new=mock_get):
             healthy = await client.health_check()
             assert healthy
 
