@@ -1,4 +1,3 @@
-import pytest
 from src.pipeline.formatters import ContextFormatter
 
 def test_format_for_llm():

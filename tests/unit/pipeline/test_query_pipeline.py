@@ -1,7 +1,8 @@
-import pytest
 from unittest.mock import AsyncMock
 from src.pipeline.query_pipeline import QueryPipeline
 from src.pipeline.config import PipelineConfig
+
+import pytest
 
 @pytest.mark.asyncio
 async def test_query_pipeline_basic_init_and_process():

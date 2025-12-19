@@ -1,9 +1,11 @@
 from typing import Any, Dict, List
 
+
 class ContextFormatter:
     """
     ContextFormatter: Formats context for LLM or output.
     """
+
     def format_for_llm(self, query: str, results: List[Dict[str, Any]]) -> str:
         # Example: format context for LLM prompt
         context_lines = [f"Query: {query}"]
@@ -17,4 +19,9 @@ class ContextFormatter:
 
     def format_detailed(self, results: List[Dict[str, Any]]) -> str:
         # Detailed format for debugging or analysis
-        return "\n".join([f"ID: {r.get('id', '')}, Score: {r.get('score', 0)}, Content: {r.get('content', '')}" for r in results])
+        return "\n".join(
+            [
+                f"ID: {r.get('id', '')}, Score: {r.get('score', 0)}, Content: {r.get('content', '')}"
+                for r in results
+            ]
+        )

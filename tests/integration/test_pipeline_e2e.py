@@ -1,9 +1,8 @@
 import pytest
-import asyncio
 from unittest.mock import AsyncMock
 from src.pipeline.query_pipeline import QueryPipeline
 from src.pipeline.config import PipelineConfig
-from src.pipeline.processors import QueryProcessor, ResultProcessor
+from src.pipeline.processors import ResultProcessor
 from src.pipeline.formatters import ContextFormatter
 
 @pytest.mark.asyncio

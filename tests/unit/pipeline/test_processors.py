@@ -1,4 +1,3 @@
-import pytest
 from src.pipeline.processors import QueryProcessor, ResultProcessor
 
 def test_clean_query():

@@ -1,11 +1,11 @@
 from src.pipeline.config import PipelineConfig
-from src.pipeline.exceptions import PipelineError
 from typing import Any, Dict
 
 class QueryPipeline:
     """
     QueryPipeline: Orchestrates query processing and retrieval.
     """
+
     def __init__(self, retrieval_client: Any, config: PipelineConfig):
         self.retrieval_client = retrieval_client
         self.config = config
@@ -14,7 +14,6 @@ class QueryPipeline:
         """
         Process a query through the pipeline and return formatted results.
         """
-        # Placeholder: actual logic to be implemented
         results = await self.retrieval_client.search(query)
         return {
             "formatted_context": f"Context for: {query}",

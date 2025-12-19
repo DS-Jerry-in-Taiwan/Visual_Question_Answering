@@ -1,6 +1,7 @@
 from pydantic_settings import BaseSettings
 from pydantic import Field
 
+
 class PipelineConfig(BaseSettings):
     """Pipeline module configuration"""
 
