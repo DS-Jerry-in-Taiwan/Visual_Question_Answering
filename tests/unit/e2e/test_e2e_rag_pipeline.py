@@ -1,6 +1,12 @@
 import pytest
 import asyncio
 from unittest.mock import AsyncMock
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
+print("sys.path:", sys.path)
+print("cwd:", os.getcwd())
+print("file:", __file__)
 from src.e2e.rag_pipeline import E2ERAGPipeline
 from src.pipeline.query_pipeline import QueryPipeline
 from src.llm.client import LLMClient

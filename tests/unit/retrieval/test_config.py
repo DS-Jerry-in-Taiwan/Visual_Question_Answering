@@ -10,8 +10,10 @@ def test_retrieval_config_env(monkeypatch):
     assert config.default_top_k == 5
     assert config.timeout_seconds == 10
 
+from pydantic_core import ValidationError
+
 def test_retrieval_config_invalid(monkeypatch):
     monkeypatch.delenv("VLM_RAG_ENDPOINT", raising=False)
     monkeypatch.delenv("VLM_RAG_API_KEY", raising=False)
-    with pytest.raises(Exception):
+    with pytest.raises(ValidationError):
         RetrievalConfig()

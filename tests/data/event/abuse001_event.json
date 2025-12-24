@@ -1,0 +1,39 @@
+{
+  "meta_data": {
+    "file_name": "Abuse001_x264.mp4",
+    "total_duration": "00:00:15",
+    "resolution": "320x240"
+  },
+  "events": [
+    {
+      "event_id": "EVT_20251222_001",
+      "timestamp": "00:00:09",
+      "region": {
+        "location": "大廳中央區域",
+        "reference_object": "接待桌旁"
+      },
+      "activity": {
+        "type": "Physical_Assault",
+        "description": "蓄意推擠/攻擊"
+      },
+      "subjects": [
+        {
+          "role": "Victim",
+          "attributes": "年長女性，淺色上衣，深色褲子",
+          "status": "被推倒/倒地"
+        },
+        {
+          "role": "Aggressor",
+          "attributes": "年輕男性，黑色T恤，深色褲子",
+          "action": "奔跑中推人，隨後逃逸"
+        },
+        {
+          "role": "Accomplice/Witness",
+          "attributes": "年輕男性，白色T恤，深色褲子",
+          "action": "與加害者同行奔跑，未停留"
+        }
+      ],
+      "summary": "在影片 00:09 處，兩名男子奔跑經過大廳中央。其中穿著黑色 T 恤的男子在經過接待桌時，蓄意猛力推倒一名站在桌旁的年長女性，導致受害者重摔在地。兩名涉事男子未做停留，直接向畫面右上方出口逃逸。"
+    }
+  ]
+}
