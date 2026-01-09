@@ -59,18 +59,9 @@
 ### 模組流程圖與循序圖
 
 #### 系統整體流程圖
-```mermaid
-flowchart TD
-    A[使用者查詢] --> B[前端 Streamlit]
-    B --> C[API (FastAPI)]
-    C --> D[Pipeline]
-    D --> E[Retrieval 檢索]
-    D --> F[LLM 生成答案]
-    E --> D
-    F --> D
-    D --> C
-    C --> B
-    B --> A
+
+```
+[使用者查詢] → [前端 Streamlit] → [API (FastAPI)] → [Pipeline] → [Retrieval 檢索] ↔ [Pipeline] → [LLM 生成答案] ↔ [Pipeline] → [API] → [前端] → [使用者]
 ```
 
 #### 查詢處理循序圖
@@ -148,3 +139,4 @@ MIT License
 
 - 專案負責人：PM Agent
 - Email: workmk666@gamil.com
+### 授權
