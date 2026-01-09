@@ -21,11 +21,11 @@
 
 ## 4. 專案使用流程
 
-> ⚠️ **注意：首次啟動前請先完成模型下載與資料庫初始化，否則系統無法正常運作。**
+> ⚠️ **注意：首次啟動前請先完成 API Key 設定與資料庫初始化，否則系統無法正常運作。**
 
 ### 初始化步驟
 1. 執行 `python scripts/init_project_dirs.py`，自動建立影片與相關目錄結構。
-2. 下載/準備所需模型（如 VLM、LLM、embedding model），依 docs/llm/model_selection.md 指示操作。
+2. 申請 OpenAI/Anthropic API Key，並依 docs/llm/model_selection.md 設定 `.env` 或 `configs/default.yaml`（本專案 LLM/embedding 皆預設為雲端 API 調用）。
 3. 將影片檔案放入 `Anomaly-Videos-Part-1` 目錄。
 4. 初始化向量資料庫（chroma_db），可執行 `scripts/test_index_pipeline.py` 或依 docs/architecture/data_flow.md 步驟建立索引。
 5. 檢查 `configs/` 與 `.env.example`，複製為 `.env` 並依需求調整參數（可參考 `configs/default.yaml`）。
