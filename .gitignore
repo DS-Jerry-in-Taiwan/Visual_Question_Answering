@@ -50,6 +50,7 @@ data/processed/
 # Reports
 tests/reports/*.html
 tests/reports/*.xml
+!tests/reports/*.md
 
 # Sphinx docs
 docs/_build/
@@ -73,7 +74,14 @@ PHASE2_PLAN.md
 Phase 2*-A 情境說明.md
 "Phase 2*-A 情境說明.md"
 standard_queries.md
-tructure
-is the foundation for Visual_Question_Answering(VQA) system.
-ive rules
-.txt with all dependencies
+
+# DB/Cache/Output
+chroma_db/
+output.json
+output_e2e_ui_results.json
+static/
+
+# 其他不需推送的檔案
+reports/
+scripts/e2e_ui_playwright.py
+scripts/search_chromadb.py
