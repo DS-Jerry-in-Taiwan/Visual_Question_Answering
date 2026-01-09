@@ -1,4 +1,4 @@
-# LLM 模型選擇建議（Phase 2 - INFRA）
+# LLM 模型選擇與準備指引（Phase 2 - INFRA）
 
 ## 候選模型比較
 
@@ -18,6 +18,17 @@
   - 價格低、上下文長度充足、API 穩定
   - 適合大多數 VQA 任務
   - 若需更長上下文可考慮 Claude 3.5 Sonnet
+
+## 模型準備與 API 設定步驟
+
+1. 註冊 OpenAI 或 Anthropic 帳號，取得 API Key。
+2. 於 `.env` 或 `configs/default.yaml` 設定下列欄位：
+   - `llm_provider`: openai 或 anthropic
+   - `llm_model`: gpt-4o, gpt-4, claude-3.5-sonnet 等
+   - `llm_api_base`: API 端點（如 https://api.openai.com/v1）
+   - `llm_api_key`: 你的 API Key
+3. 若使用本地模型，請參考 docs/llm/model_selection.md 相關章節（可擴充）。
+4. 依需求調整 `embedding_model` 欄位（如 BAAI/bge-m3）。
 
 ## 參考依據
 
