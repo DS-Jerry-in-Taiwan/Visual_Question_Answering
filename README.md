@@ -136,7 +136,5 @@ Visual_Question_Answering(VQA)/
 MIT License
 
 ### 聯絡資訊
-
-- 專案負責人：PM Agent
 - Email: workmk666@gamil.com
 ### 授權
