@@ -1,85 +1,108 @@
 # Visual_Question_Answering(VQA) - 安防視頻問答系統
 
-## 專案簡介
-Visual_Question_Answering(VQA) 是一套結合多智能體（Multi-Agent）協作的安防視頻問答系統，旨在讓使用者能以自然語言查詢監控影片內容，並獲得智慧化、即時的答案。系統整合 VLM-RAG（視覺語言檢索生成）與 LLM（大型語言模型），提供高效檢索、語意理解與答案生成能力。
+## 1. 專案使用場景
+- 企業級安防監控、智慧建築、公共空間事件追蹤
+- 需以自然語言查詢監控影片、快速獲得異常事件摘要
+- 支援安防人員、管理者、運維團隊即時決策
 
-本專案採用現代化技術棧，支援多階段開發流程，適合企業級安防應用、智慧城市、事件追蹤等場景。團隊以模組化、可擴展為核心設計原則，確保後續維護與功能擴充的便利性。
+## 2. 專案需求與目標
+- 讓非技術用戶能以中文/自然語言查詢監控內容
+- 自動檢索、彙整異常事件，並以 AI 生成摘要
+- 提供可視化查詢介面，降低學習門檻
+- 支援事件追蹤、證據查詢、異常告警等需求
 
-## Multi-Agent 開發團隊
+## 3. 專案實現功能（MVP 版本）
+- 支援自然語言查詢監控影片
+- VLM-RAG 智慧檢索與事件摘要
+- LLM 生成精簡結論（僅 answer，不含多餘說明）
+- 事件列表顯示事件編號、描述、分數、圖片
+- Streamlit 前端一頁式查詢介面
+- E2E 測試、AI 品質效能評估、UX 報告
 
-| Agent 名稱 | 角色             | 職責描述                                      |
-|------------|------------------|-----------------------------------------------|
-| PM         | Project Manager  | 專案初始化、進度管理、協作協調                |
-| ARCH       | System Architect | 系統架構設計、API 規劃、技術棧決策            |
-| RAG        | Retrieval Expert | VLM-RAG 檢索優化、嵌入調校、檢索 API 實作      |
-| LLM        | LLM Expert       | LLM 整合、提示詞設計、生成優化                |
-| UI         | Frontend Engineer| 前端開發、API 整合、介面設計                  |
-| QA         | Quality Assurance| 測試設計、品質分析、評估與回饋                |
+## 4. 專案使用流程
+1. 啟動後端（FastAPI）：`uvicorn src.api.vqa_api:app --reload`
+2. 啟動前端（Streamlit）：`streamlit run frontend/app.py`
+3. 使用者輸入查詢問題（如「昨天下午大廳有異常活動嗎？」）
+4. 系統自動檢索事件，AI 回答僅顯示結論，事件列表顯示細節
+5. 支援事件編號查詢、圖片點擊、回饋提交
 
-## 核心功能
-- 自然語言查詢
-- 智慧檢索（VLM-RAG）
-- 答案生成（LLM）
-- 視覺化介面（Streamlit/React）
+## 5. 後續規劃
+- UX/AI 品質評分與用戶回饋持續補充
+- LLM 回答格式進一步優化
+- 多語言查詢與國際化支援
+- 查詢日誌、異常自動告警、權限管理
+- 長期：推理效能優化、模型升級、API 擴展
 
-## 技術棧
+---
+### 專案框架
 
-### 後端
-- Python 3.10+
-- FastAPI
-- VLM-RAG（既有系統）
-- OpenAI API / Claude API
+本專案採用「多模組分層」設計，核心流程如下：
 
-### 前端
-- Streamlit（MVP）
-- React + Ant Design（長期）
+1. 前端（frontend/）：Streamlit UI，負責查詢輸入、結果展示、用戶回饋。
+2. API 層（src/api/）：FastAPI 提供 VQA 查詢、回饋等 RESTful API。
+3. Pipeline 層（src/pipeline/）：負責查詢流程協調、錯誤處理、格式轉換。
+4. 檢索層（src/retrieval/）：VLM-RAG 事件檢索、向量查詢、資料庫管理。
+5. LLM 層（src/llm/）：提示詞設計、LLM API 封裝、答案生成。
+6. 工具層（src/utils/）：日誌、驗證、通用工具。
+7. 測試（tests/）：單元、整合、E2E 測試與評估報告。
 
-### 部署
-- Docker
-- Docker Compose
+### 模組功能簡介
 
-## 開發階段
+- **frontend/**：Streamlit 前端，支援查詢、事件列表、AI 摘要、用戶回饋。
+- **src/api/**：VQA API 與回饋 API，負責前後端資料交換。
+- **src/pipeline/**：查詢協調、錯誤處理、格式化，串接檢索與 LLM。
+- **src/retrieval/**：事件向量檢索、資料庫查詢、檢索服務。
+- **src/llm/**：LLM API 封裝、提示詞管理、答案生成。
+- **src/utils/**：日誌、驗證、共用工具。
+- **tests/**：單元、整合、E2E 測試與品質報告。
 
-- Phase 0: 專案初始化（Day 1-2）
-- Phase 1: RAG 模組優化（Day 3-5）
-- Phase 2: LLM 整合（Day 6-8）
-- Phase 3: Pipeline 整合（Day 9-10）
-- Phase 4: 前端開發（Day 11-14）
-- Phase 5: 測試與評估（Day 15-17）
+### 模組流程圖與循序圖
 
-## 快速開始
-
-### 環境需求
-- Python 3.10 以上
-- pip
-- Docker（建議）
-- 建議使用虛擬環境（venv）
-
-### 安裝步驟
-
-```bash
-# 1. 下載專案
-git clone https://github.com/your-org/Visual_Question_Answering-VQA.git
-cd Visual_Question_Answering\(VQA\)
-
-# 2. 建立虛擬環境
-python3 -m venv venv
-source venv/bin/activate
-
-# 3. 安裝依賴
-pip install -r requirements.txt
-
-# 4. 複製環境變數範本
-cp .env.example .env
-
-# 5. 啟動後端服務
-uvicorn src.api.vqa_api:app --reload
-
-# 6. 啟動前端（Streamlit）
-streamlit run frontend/app.py
+#### 系統整體流程圖
+```mermaid
+flowchart TD
+    A[使用者查詢] --> B[前端 Streamlit]
+    B --> C[API (FastAPI)]
+    C --> D[Pipeline]
+    D --> E[Retrieval 檢索]
+    D --> F[LLM 生成答案]
+    E --> D
+    F --> D
+    D --> C
+    C --> B
+    B --> A
 ```
 
-## 專案結構
+#### 查詢處理循序圖
+```mermaid
+sequenceDiagram
+    participant User
+    participant UI as Streamlit 前端
+    participant API as FastAPI
+    participant Pipeline
+    participant Retrieval
+    participant LLM
+
+    User->>UI: 輸入查詢
+    UI->>API: 發送查詢請求
+    API->>Pipeline: 處理查詢
+    Pipeline->>Retrieval: 事件檢索
+    Retrieval-->>Pipeline: 返回事件
+    Pipeline->>LLM: 生成答案
+    LLM-->>Pipeline: 回傳結論
+    Pipeline-->>API: 組裝回應
+    API-->>UI: 回傳查詢結果
+    UI-->>User: 顯示摘要與事件列表
+```
+
+### 技術棧
+
+- Python 3.10+
+- FastAPI, Streamlit
+- VLM-RAG, LLM (OpenAI/Claude)
+- Docker, Docker Compose
+
+### 專案結構
 
 ```
 Visual_Question_Answering(VQA)/
@@ -117,15 +140,11 @@ Visual_Question_Answering(VQA)/
         ├── __init__.py
 ```
 
-## 開發規範
-
-- 詳細請參見 [docs/guides/](docs/guides/)
-
-## 授權
+### 授權
 
 MIT License
 
-## 聯絡資訊
+### 聯絡資訊
 
 - 專案負責人：PM Agent
-- Email: pm@your-org.com
+- Email: workmk666@gamil.com
