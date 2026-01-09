@@ -20,6 +20,15 @@
 - E2E 測試、AI 品質效能評估、UX 報告
 
 ## 4. 專案使用流程
+
+> ⚠️ **注意：首次啟動前請先完成模型下載與資料庫初始化，否則系統無法正常運作。**
+
+### 初始化步驟
+1. 下載/準備所需模型（如 VLM、LLM、embedding model），依 docs/llm/model_selection.md 指示操作。
+2. 初始化向量資料庫（chroma_db），可執行 `scripts/test_index_pipeline.py` 或依 docs/architecture/data_flow.md 步驟建立索引。
+3. 檢查 `configs/` 與 `.env.example`，複製為 `.env` 並依需求調整參數。
+
+### 啟動流程
 1. 啟動後端（FastAPI）：`uvicorn src.api.vqa_api:app --reload`
 2. 啟動前端（Streamlit）：`streamlit run frontend/app.py`
 3. 使用者輸入查詢問題（如「昨天下午大廳有異常活動嗎？」）
